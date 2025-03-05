@@ -8,5 +8,5 @@ let area = Math.PI * Math.pow(radius, 2);
 
 //print
 console.log("Diameter: " + diameter)
-console.log("Circumference: " + circumference)
-console.log("Area: " + area.toFixed(3))
+console.log("Circumference: " + circumference.toFixed(4))
+console.log("Area: " + area.toFixed(4))
