@@ -8,5 +8,5 @@ let difference = Math.abs(date2 - date1);
 //convert to day
 let daysDiff = difference / (1000 * 60 * 60 * 24);
 
-//print
+//print output
 console.log("Differences in Days: " + daysDiff);
