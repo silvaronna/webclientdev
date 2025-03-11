@@ -5,5 +5,5 @@ let width = 3;
 //formulas
 let area = length * width;
 
-//print
+//print output
 console.log(area);
