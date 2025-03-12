@@ -24,6 +24,10 @@ function isEven(n){
 function removeFirstOccurrence(str, search) {
     return str.replace(search, '');
 }
+function isPalindrome(str) {
+    let cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '')();
+    return cleanedStr === cleanedStr.split('');
+}
 function showMenu() {
     console.log('\nMenu:');
     console.log('1. Konversi Fahrenheit ke Celsius');
@@ -31,7 +35,8 @@ function showMenu() {
     console.log('3. Konversi CM ke KM');
     console.log('4. Bilangan ganjil atau genap');
     console.log('5. Hapus Huruf dari string');
-    console.log('6. Keluar');
+    console.log('6. Pengecekan string palindrome')
+    console.log('7. Keluar');
     
     rl.question('Pilih menu (1-X): ', (choice) => {
         switch (choice) {
@@ -60,7 +65,19 @@ function showMenu() {
                     showMenu();
                 });
                 break;
-            case '?':
+            case '5':
+                rl.question('String = Hello World. Delete from String: ', (input) => {
+                    console.log(`Hasil: ${removeFirstOccurrence("Hello World", input)}`);
+                    showMenu();
+                });
+                break;
+            case '6':
+                rl.question('Masukkan string untuk dicek palindrom: ', (input) => {
+                    console.log(isPalindrome(input) ? 'Palindrome' : 'Bukan Palindrome');
+                    showMenu();
+                });
+                break;
+            case '7':
                 console.log('Terima kasih!');
                 rl.close();
                 break;
