@@ -1,7 +1,5 @@
-//declaration of radius
+//declaration and calculate
 let radius = 5;
-
-//calculate
 let diameter = 2 * radius;
 let circumference = 2 * Math.PI * radius;
 let area = Math.PI * Math.pow(radius, 2);
