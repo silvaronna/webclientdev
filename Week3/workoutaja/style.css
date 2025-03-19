@@ -37,17 +37,20 @@ nav ul {
 /* Check list link style */
 nav ul li a {
   text-decoration: none;
+  outline: none;
+  border: none;
+  padding: 8px 12px;
   font-size: 18px;
   font-weight: 500;
   color: #333;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
-}
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;}
 
 /* Make text bold on hover */
 nav ul li a:hover {
     color: #70c6b7;
-}
+    transform: scale(1.1);
+  }
 
 
 main {
@@ -117,3 +120,13 @@ footer a {
   right: 0px;
 }
 
+@keyframes swing-image {
+  0%, 100% { transform: rotate(0deg) translateY(0px); }
+  25% { transform: rotate(2deg) translateY(5px); }
+  50% { transform: rotate(0deg) translateY(0px); }
+  75% { transform: rotate(-2deg) translateY(-5px); }
+}
+
+img {
+  animation: swing-image 4s infinite ease-in-out;
+}
