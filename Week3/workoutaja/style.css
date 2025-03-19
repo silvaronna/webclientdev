@@ -7,7 +7,6 @@ font-family: 'Open Sans', sans-serif; */
 
 body {
   background: linear-gradient(180deg, rgba(227, 255, 248, 0) 82.08%, rgba(227, 255, 248, 0.38) 100%);
-
   min-height: 100vh;
 }
 
@@ -28,18 +27,26 @@ nav {
 
 /* Check list styling */
 nav ul {
+  list-style: none;
   display: flex;
   gap: 48px;
+  padding: 0;
+  margin: 0;
 }
 
 /* Check list link style */
 nav ul li a {
-
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
 
 /* Make text bold on hover */
 nav ul li a:hover {
-  
+    color: #70c6b7;
 }
 
 
@@ -47,21 +54,25 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 88px;
+  margin-bottom: 16px;
 }
 
 /* Check margin and font styling */
 .text h1 {
   font-family: 'Mulish', sans-serif;
+  font-size: 48px;
+  margin-bottom: 16px;
 }
 
 /* Check font styling */
 .text h1 span {
+  color: #70c6b7; /* Warna berbeda */
 }
 
 /* Check font styling */
 .text p {
   font-family: 'Open Sans', sans-serif; 
+  margin-bottom: 48px;
 }
 
 /* Check font styling and make sure the button is rounded */
@@ -69,15 +80,28 @@ main {
   font-family: 'Open Sans', sans-serif;
   display: flex;
   gap: 8px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: none;
+  background-color: #69B99D;
+  align-items: center;
+  font-size: 16px;
+  color:aliceblue
 }
 
 /* Handle when user hover on the button */
 .text button:hover {
 }
 
+.text button:active {
+  background-color: #169f4d;
+  transform: scale(0.95);
+}
+
 /* Check the text styling */
 footer {
-  font-family: 'Open Sans', sans-serif; 
+  font-family: 'Open Sans', sans-serif;
+  text-align: center; 
 }
 
 /* Check the text styling */
