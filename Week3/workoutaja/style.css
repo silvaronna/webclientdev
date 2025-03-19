@@ -130,3 +130,11 @@ footer a {
 img {
   animation: swing-image 4s infinite ease-in-out;
 }
+
+.watermark {
+  font-size: 12px; /* Ukuran kecil */
+  color: rgba(0, 0, 0, 0.3); /* Transparan */
+  position: center;
+  bottom: 5px;
+  right: 10px;
+}
