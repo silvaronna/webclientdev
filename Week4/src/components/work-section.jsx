@@ -5,18 +5,18 @@ export default function WorkSection() {
     {
       id: 1,
       title: "Asia Sistem Indonesia",
-      categories: "Cloud & Container Configuration - Infrastructure - Technical Support",
+      categories: "System Administration - Infrastructure - Technical Support",
     },
     {
       id: 2,
-      title: "GASSOLUTION",
-      categories: "Windows Troubleshooting - Helpdesk Support - IT Support",
-    },
-    {
-      id: 3,
       title: "Ayu Derma Pharmacy",
       categories: "Hardware Troubleshooting - IT Staff",
     },
+    {
+      id: 3,
+      title: "GASSOLUTION",
+      categories: "Windows Troubleshooting - Helpdesk Support - IT Support",
+    }
   ]
 
   return (
