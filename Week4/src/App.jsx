@@ -1,16 +1,27 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Portfolio from "./pages/portfolio.jsx"
+import "./App.css"
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [isWhiteSection, setIsWhiteSection] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
+      // Detect if scrolled down
       if (window.scrollY > 50) {
         setScrolled(true)
       } else {
         setScrolled(false)
+      }
+
+      // Detect if in white section (after hero)
+      if (window.scrollY > window.innerHeight - 100) {
+        setIsWhiteSection(true)
+      } else {
+        setIsWhiteSection(false)
       }
     }
 
@@ -28,24 +39,46 @@ function App() {
 
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full h-20 z-50 transition-colors duration-300 ${scrolled ? "bg-[#0a1525]/90 backdrop-blur-sm" : ""}`}
+        className={`fixed top-0 left-0 w-full h-24 z-50 transition-all duration-300 ${
+          scrolled ? "bg-[#0a1525]/90 backdrop-blur-sm" : ""
+        }`}
       >
-        <div className="container mx-auto px-4 h-full flex justify-between items-center relative z-10">
-          <div className="text-white font-medium text-lg"> Azka Abdillah </div>
+        <div className="container mx-auto px-8 h-full flex justify-between items-center relative z-10 max-w-[1600px]">
+          <div className="text-white font-medium text-xl"> Azka Abdillah </div>
           <nav>
-            <ul className="flex gap-8">
+            <ul className="flex gap-12">
               <li>
                 <a
                   href="#about"
-                  className="text-white font-medium hover:text-white hover:shadow-glow transition-colors duration-200"
+                  className={`font-medium text-lg transition-colors duration-200 ${
+                    isWhiteSection
+                      ? "text-[#0a1525] hover:text-purple-700 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
+                      : "text-white hover:text-gray-300"
+                  }`}
                 >
                   About
                 </a>
               </li>
               <li>
                 <a
+                  href="#education"
+                  className={`font-medium text-lg transition-colors duration-200 ${
+                    isWhiteSection
+                      ? "text-[#0a1525] hover:text-purple-700 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
+                      : "text-white hover:text-gray-300"
+                  }`}
+                >
+                  Education
+                </a>
+              </li>
+              <li>
+                <a
                   href="#work"
-                  className="text-white font-medium hover:text-white hover:shadow-glow transition-colors duration-200"
+                  className={`font-medium text-lg transition-colors duration-200 ${
+                    isWhiteSection
+                      ? "text-[#0a1525] hover:text-purple-700 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
+                      : "text-white hover:text-gray-300"
+                  }`}
                 >
                   Work
                 </a>
@@ -53,7 +86,11 @@ function App() {
               <li>
                 <a
                   href="#contact"
-                  className="text-white font-medium hover:text-white hover:shadow-glow transition-colors duration-200"
+                  className={`font-medium text-lg transition-colors duration-200 ${
+                    isWhiteSection
+                      ? "text-[#0a1525] hover:text-purple-700 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full"
+                      : "text-white hover:text-gray-300"
+                  }`}
                 >
                   Contact
                 </a>
@@ -64,27 +101,27 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center pt-20 w-full h-[calc(100vh-5rem)] relative z-10">
-        <div className="container mx-auto px-4 relative h-full flex flex-col items-center justify-center">
-          {/* Running Text Container */}
-          <div className="w-full overflow-hidden absolute bottom-[10%] left-0 z-20">
-            <div className="relative whitespace-nowrap w-full overflow-hidden">
-              <div className="inline-block animate-runningText text-[clamp(3rem,10vw,8rem)] font-bold text-white shadow-text">
-                <span className="inline-block pr-[50px]">System Administrator</span>
-                <span className="inline-block pr-[50px]">- Cloud Engineer</span>
+      <main className="flex-1 pt-24 relative z-20">
+        {/* Hero Section */}
+        <section className="flex items-center justify-center h-[calc(100vh-6rem)] relative">
+          <div className="container mx-auto px-8 relative h-full flex flex-col items-center justify-center max-w-[1600px]">
+            {/* Running Text */}
+            <div className="w-full overflow-hidden absolute bottom-[15%] left-0 z-20">
+              <div className="relative whitespace-nowrap w-full overflow-hidden">
+                <div className="inline-block animate-runningText text-[clamp(4rem,12vw,10rem)] font-bold text-white shadow-text">
+                  <span className="inline-block pr-[60px]">System Administrator</span>
+                  <span className="inline-block pr-[60px]">- Cloud Engineer</span>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Wave Emoji */}
-          <div className="absolute right-[5%] bottom-[20%] bg-black text-white w-[70px] h-[70px] rounded-full flex justify-center items-center text-4xl z-30 shadow-lg md:w-[70px] md:h-[70px] md:text-4xl sm:w-[50px] sm:h-[50px] sm:text-2xl sm:right-[10%]">
-            <span>👋</span>
-          </div>
-        </div>
+        {/* Portfolio Sections (About + Work) */}
+        <Portfolio />
       </main>
     </div>
   )
 }
 
 export default App
-
