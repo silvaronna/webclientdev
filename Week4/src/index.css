@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,26 +11,57 @@
     width: 100%;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: #b45309;
+    color: white;
   }
 }
 
 @layer components {
   .shadow-glow {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
   }
 
   .shadow-text {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
   }
 
   .shadow-lg {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold relative;
+  }
+
+  .section-heading::after {
+    content: "";
+    @apply absolute -bottom-3 left-0 w-16 h-1 bg-amber-600;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(to right, #f59e0b, #d97706, #92400e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(to right, #f59e0b, #d97706, #92400e) 1;
   }
 }
 
 @layer utilities {
   .animate-runningText {
-    animation: runningText 15s linear infinite;
+    animation: runningText 20s linear infinite;
   }
 
   @keyframes runningText {
@@ -40,6 +71,62 @@
     100% {
       transform: translateX(-50%);
     }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(8px);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .gold-shadow {
+    box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.3);
+  }
+
+  .gold-glow {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
   }
 }
 
