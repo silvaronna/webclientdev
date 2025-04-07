@@ -13,7 +13,7 @@ export default function WorkSection() {
       title: "Asia Sistem Indonesia",
       categories: "System Administration - Infrastructure - Technical Support",
       logo: "/public/AsiaSistem.jpeg?height=50&width=50",
-      period: "January 2023 - Present",
+      period: "June 2024 - Present",
       description: "Managed server infrastructure and provided technical support for enterprise clients.",
       fullDescription:
         "Responsible for maintaining and optimizing Linux and Windows server environments, implementing security protocols, and providing technical support for enterprise clients. Collaborated with the development team to ensure smooth deployment of applications and services.",
@@ -31,7 +31,7 @@ export default function WorkSection() {
       title: "Ayu Derma Pharmacy",
       categories: "Hardware Troubleshooting - IT Staff",
       logo: "/placeholder.svg?height=50&width=50",
-      period: "June 2022 - December 2022",
+      period: "January 2022 - April 2024",
       description: "Provided IT support and hardware troubleshooting for pharmacy systems.",
       fullDescription:
         "Served as IT staff responsible for maintaining computer systems, troubleshooting hardware issues, and ensuring the pharmacy management software ran smoothly. Implemented backup solutions and trained staff on basic IT procedures.",
@@ -49,7 +49,7 @@ export default function WorkSection() {
       title: "GASSOLUTION",
       categories: "Windows Troubleshooting - Helpdesk Support - IT Support",
       logo: "/placeholder.svg?height=50&width=50",
-      period: "March 2022 - May 2022",
+      period: "January 2023 - April 2023",
       description: "Provided helpdesk and IT support for Windows-based systems.",
       fullDescription:
         "Worked as helpdesk support specialist, resolving Windows-based system issues, assisting users with software and hardware problems, and documenting solutions for future reference. Participated in system upgrades and maintenance activities.",
