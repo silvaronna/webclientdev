@@ -1,78 +1,119 @@
-import { Server, Cloud, Network, Code, Container, Terminal } from "lucide-react"
+import { Server, Cloud, Network, Container, Lightbulb, Users, Clock, RefreshCcw } from "lucide-react"
 
 export default function SkillsSection() {
-  const skills = [
+  const hardSkills = [
     {
-      icon: <Server size={36} />,
+      icon: <Server size={42} />,
       title: "System Administration",
       description: "Experienced in managing Linux and Windows servers, ensuring optimal performance and security.",
-      tools: ["Linux", "Windows Server", "VMware ESXi"]
+      tools: ["Linux", "Windows Server", "VMware ESXi"],
+      bgClass: "server-bg",
     },
     {
-      icon: <Cloud size={36} />,
+      icon: <Cloud size={42} />,
       title: "Cloud Management",
       description: "Experienced hands-on cloud based server for deploying and managing scalable infrastructure.",
-      tools: ["AWS", "Biznet Gio"]
+      tools: ["AWS", "Biznet Gio"],
+      bgClass: "cloud-bg",
     },
     {
-      icon: <Container size={36} />,
-      title: "Container Configuration and Management",
-      description: "Skilled in setting up containers, managing multi-container apps, and streamlining development workflows through containerization.",
-      tools: ["Docker"]
+      icon: <Container size={42} />,
+      title: "Container Configuration",
+      description:
+        "Skilled in setting up containers, managing multi-container apps, and streamlining development workflows.",
+      tools: ["Docker"],
+      bgClass: "container-bg",
     },
     {
-      icon: <Network size={36} />,
+      icon: <Network size={42} />,
       title: "Network Engineering",
       description: "Skilled in designing, implementing, and troubleshooting network architectures.",
-      tools: ["Cisco", "Mikrotik"]
+      tools: ["Cisco", "Mikrotik"],
+      bgClass: "network-bg",
+    },
+  ]
+
+  const softSkills = [
+    {
+      icon: <Lightbulb size={42} />,
+      title: "Problem Solving",
+      description: "Ability to analyze complex technical issues and develop effective solutions.",
     },
     {
-      icon: <Terminal size={36} />,
-      title: "Scripting & Automation",
-      description: "Experienced in scripting for automating routine tasks and system processes such as database backup, deployment, and provisioning.",
-      tools: ["Bash", "PowerShell", "Vagrant"]
+      icon: <Users size={42} />,
+      title: "Team Collaboration",
+      description: "Experience working in cross-functional teams to achieve project goals.",
     },
     {
-      icon: <Code size={36} />,
-      title: "Software Fundamentals",
-      description: "Competent in frontend development using React JS to build responsive and modern web interfaces.",
-      tools: ["React JS", "Vite", "Tailwind CSS"]
+      icon: <Clock size={42} />,
+      title: "Time Management",
+      description: "Skilled at prioritizing tasks between work & studies.",
+    },
+    {
+      icon: <RefreshCcw size={42} />,
+      title: "Continuous Learning",
+      description: "Always eager to explore emerging technologies and continuously improve my technical capabilities.",
     },
   ]
 
   return (
-    <section id="skills" className="py-32 px-8 max-w-7xl mx-auto bg-gradient-to-b from-white to-amber-50">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl font-bold mb-6 text-amber-800">Technical Skills</h2>
-        <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-          My expertise spans across various domains of IT infrastructure and cloud technologies.
-        </p>
+    <section id="skills" className="section-container bg-dark">
+      <div className="text-center mb-24 animate-on-scroll">
+        <h2 className="text-5xl font-bold mb-8 text-amber-400">My Skills</h2>
+        <p className="text-2xl text-gray-300 max-w-4xl mx-auto">
+        Some of my Skills in aspects of soft skills as well as hard skills</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="flex flex-col bg-white p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-amber-100 hover:border-amber-300 gold-shadow"
-          >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center mb-6 text-amber-700 border border-amber-300">
-              {skill.icon}
+      {/* Hard Skills */}
+      <div className="mb-24">
+        <h3 className="text-4xl font-bold mb-12 text-amber-500 text-center animate-on-scroll">Hard Skills</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {hardSkills.map((skill, index) => (
+            <div
+              key={index}
+              className={`flex flex-col card-dark p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 gold-shadow animate-on-scroll ${skill.bgClass}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-900/30 to-amber-700/20 flex items-center justify-center mb-8 text-amber-500 border border-amber-700/30">
+                {skill.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-amber-400">{skill.title}</h3>
+              <p className="text-gray-300 text-lg mb-6">{skill.description}</p>
+              <div className="mt-auto pt-4 flex flex-wrap gap-3">
+                {skill.tools.map((tool, i) => (
+                  <span
+                    key={i}
+                    className="text-base bg-amber-900/30 text-amber-300 px-4 py-2 rounded-full border border-amber-700/30"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-amber-800">{skill.title}</h3>
-            <p className="text-gray-700 text-justify">{skill.description}</p>
-            <div className="mt-auto pt-4 flex flex-wrap gap-2">
-              {skill.tools.map((tool, i) => (
-                <span
-                  key={i}
-                  className="text-sm bg-amber-100 text-amber-800 px-3 py-1 rounded-full border border-amber-300"
-                >
-                  {tool}
-                </span>
-              ))}
+          ))}
+        </div>
+      </div>
+
+      {/* Soft Skills */}
+      <div>
+        <h3 className="text-4xl font-bold mb-12 text-amber-500 text-center animate-on-scroll">Soft Skills</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {softSkills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col card-dark p-10 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 gold-shadow animate-on-scroll"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-900/30 to-amber-700/20 flex items-center justify-center mb-8 text-amber-500 border border-amber-700/30">
+                {skill.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-amber-400">{skill.title}</h3>
+              <p className="text-gray-300 text-lg">{skill.description}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
 }
+
