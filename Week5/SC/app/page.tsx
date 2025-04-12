@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Search, Grid, LayoutList } from "lucide-react"
 import PokemonCard from "@/components/pokemon-card"
 import PokemonDetail from "@/components/pokemon-detail"
+import LoadingAnimation from "@/components/loading-animation"
 import { pokemonData } from "@/data/pokemon-data"
 
 export default function Home() {
@@ -12,20 +13,72 @@ export default function Home() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false)
   const [selectedPokemon, setSelectedPokemon] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [transitionDirection, setTransitionDirection] = useState<"in" | "out">("in")
 
   const filteredPokemon = pokemonData.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleSelectPokemon = (id: string) => {
+    setTransitionDirection("out")
+    setIsTransitioning(true)
+
+    setTimeout(() => {
+      setSelectedPokemon(id)
+      setTransitionDirection("in")
+    }, 300)
+
+    setTimeout(() => {
+      setIsTransitioning(false)
+    }, 600)
+  }
+
+  const handleBack = () => {
+    setTransitionDirection("out")
+    setIsTransitioning(true)
+
+    setTimeout(() => {
+      setSelectedPokemon(null)
+      setTransitionDirection("in")
+    }, 300)
+
+    setTimeout(() => {
+      setIsTransitioning(false)
+    }, 600)
+  }
+
+  if (isLoading) {
+    return <LoadingAnimation />
+  }
+
   if (selectedPokemon) {
     const pokemon = pokemonData.find((p) => p.id === selectedPokemon)
     if (pokemon) {
-      return <PokemonDetail pokemon={pokemon} onBack={() => setSelectedPokemon(null)} />
+      return (
+        <div
+          className={`transition-opacity duration-300 ${isTransitioning ? (transitionDirection === "out" ? "opacity-0" : "opacity-100") : "opacity-100"}`}
+        >
+          <PokemonDetail pokemon={pokemon} onBack={handleBack} />
+        </div>
+      )
     }
   }
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#252A3E] text-white">
+    <main
+      className={`flex min-h-screen flex-col bg-[#252A3E] text-white transition-opacity duration-300 ${isTransitioning ? (transitionDirection === "out" ? "opacity-0" : "opacity-100") : "opacity-100"}`}
+    >
       <header className="sticky top-0 z-10 bg-[#252A3E] p-4 flex items-center justify-between border-b border-[#3A4057]">
         {!isSearchExpanded ? (
           <>
@@ -38,12 +91,15 @@ export default function Home() {
                 className="object-left"
               />
             </div>
-            <button onClick={() => setIsSearchExpanded(true)} className="p-2">
+            <button
+              onClick={() => setIsSearchExpanded(true)}
+              className="p-2 hover:bg-[#3A4057] rounded-full transition-colors duration-200"
+            >
               <Search size={20} />
             </button>
           </>
         ) : (
-          <div className="w-full flex items-center bg-white rounded-full px-4 py-1">
+          <div className="w-full flex items-center bg-white rounded-full px-4 py-1 animate-expand">
             <input
               type="text"
               placeholder="Search..."
@@ -81,22 +137,29 @@ export default function Home() {
         </div>
 
         <div className="flex gap-2">
-          <button onClick={() => setIsGridView(false)} className={`p-2 ${!isGridView ? "bg-[#0C1231]" : ""} rounded`}>
+          <button
+            onClick={() => setIsGridView(false)}
+            className={`p-2 ${!isGridView ? "bg-[#0C1231]" : ""} rounded transition-colors duration-200`}
+          >
             <LayoutList size={16} />
           </button>
-          <button onClick={() => setIsGridView(true)} className={`p-2 ${isGridView ? "bg-[#0C1231]" : ""} rounded`}>
+          <button
+            onClick={() => setIsGridView(true)}
+            className={`p-2 ${isGridView ? "bg-[#0C1231]" : ""} rounded transition-colors duration-200`}
+          >
             <Grid size={16} />
           </button>
         </div>
       </div>
 
       <div className={`p-4 grid gap-4 ${isGridView ? "grid-cols-2" : "grid-cols-1 px-4"}`}>
-        {filteredPokemon.map((pokemon) => (
+        {filteredPokemon.map((pokemon, index) => (
           <PokemonCard
             key={pokemon.id}
             pokemon={pokemon}
             isGridView={isGridView}
-            onClick={() => setSelectedPokemon(pokemon.id)}
+            onClick={() => handleSelectPokemon(pokemon.id)}
+            index={index}
           />
         ))}
       </div>
