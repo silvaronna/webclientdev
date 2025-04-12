@@ -90,7 +90,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={`p-4 grid gap-4 ${isGridView ? "grid-cols-2" : "grid-cols-1"}`}>
+      <div className={`p-4 grid gap-4 ${isGridView ? "grid-cols-2" : "grid-cols-1 px-4"}`}>
         {filteredPokemon.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
