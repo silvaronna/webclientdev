@@ -1,43 +1,78 @@
-## Changelog & Features 18 APRIL 2025
+Here’s the content in a plain text format that you can directly copy and paste into your `README.md` file on GitHub:
 
-### 1. 3-Column View Mode
-- Menambahkan mode tampilan baru: `grid3`
-- Menggunakan ikon `Columns3` dari **Lucide React** sebagai tombol toggle
-- Menyesuaikan ukuran kartu agar proporsional dengan layout 3 kolom
+```
+# Pokémon App
 
----
+A responsive mobile-first Pokémon application built with Next.js and Redux. Browse, search, and filter Pokémon with a sleek, modern UI.
 
-### 2. LocalStorage Caching
-- Implementasi **Redux + localStorage** untuk menyimpan:
-  - Data Pokémon
-  - Detail Pokémon yang dipilih
-  - Preferensi mode tampilan
-  - Pengaturan sort & filter
-- Data tetap tersimpan saat user kembali membuka halaman, tanpa perlu fetch ulang
+![Pokémon App Screenshot](https://placeholder-for-screenshot.png)
 
----
+## Features
 
-### 3. Filtering & Sorting
-- Menambahkan komponen baru: `FilterControls`, berisi:
-  - Dropdown untuk **sorting** (nama, nomor, atau tipe)
-  - Dropdown untuk **filter** berdasarkan tipe Pokémon
-- Saat filter dipilih, tipe terpilih ditampilkan paling atas
-- Menambahkan aksi & reducer Redux untuk menangani sorting dan filtering
+- **Multiple View Modes**: Toggle between 1, 2, or 3 column layouts
+- **Persistent Data**: Uses localStorage for caching Pokémon data and user preferences
+- **Filtering & Sorting**: Sort Pokémon by name, number, or type
+- **Type Filtering**: Filter Pokémon by their elemental type
+- **Search Functionality**: Quickly find Pokémon by name
+- **Detailed View**: View detailed stats for each Pokémon
+- **Smooth Transitions**: Animated transitions between views and actions
 
----
+## Technologies
 
-### 4. Redux Implementation
-- Mengonfigurasi Redux store dengan dua slice utama:
-  - `pokemonSlice`: Mengelola data Pokémon, filtering, dan sorting
-  - `uiSlice`: Mengatur state tampilan seperti view mode, pencarian, dan animasi
-- Menambahkan custom hooks agar penggunaan Redux lebih mudah dan clean
+- **Next.js**: React framework for server-rendered applications
+- **Redux Toolkit**: State management with Redux
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS**: Utility-first CSS framework
+- **Lucide React**: Beautiful, consistent icons
 
----
+## Installation
 
-### 📁 Key Files & Folders
+1. Clone the repository:
 
-| Path                            | Deskripsi                                 |
-|---------------------------------|-------------------------------------------|
-| `/lib/redux/*`                 | Store, slices, dan custom hooks Redux     |
-| `/app/providers.tsx`          | Wrapper untuk Redux Provider               |
-| `/components/filter-controls.tsx` | Komponen untuk filter & sorting Pokémon |
+    ```bash
+    git clone https://github.com/yourusername/pokemon-app.git
+    cd pokemon-app
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Run the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Usage
+
+- **View Mode Toggle**: Use the view mode toggles to switch between different column layouts (1, 2, or 3 columns).
+- **Search Pokémon**: Quickly search for Pokémon by name using the search bar.
+- **Sorting Options**: Sort Pokémon by their name, number, or type through the dropdown menu.
+- **Type Filtering**: Filter Pokémon by their elemental type using the filter dropdown.
+- **Detailed Pokémon Info**: Click on any Pokémon card to view detailed information, including stats and abilities.
+
+## Project Structure
+
+The project follows the standard Next.js structure:
+
+```
+pokemon-app/
+├── app/                  # Next.js app directory
+├── components/           # React components for UI elements like cards, buttons, etc.
+├── data/                 # Static Pokémon data (either local or fetched from an API)
+├── lib/                  # Redux store and utilities
+│   └── redux/            # Redux slices and hooks for state management
+├── public/               # Static assets (images, fonts, etc.)
+│   └── images/           # Pokémon images
+└── styles/               # Global styles and Tailwind CSS customizations
+```
+
+## License
+
+MIT
+```
