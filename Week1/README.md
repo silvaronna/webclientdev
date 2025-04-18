@@ -1,10 +1,34 @@
-<h1> Week I </h1>
-     <p> This task has a purpose to learning basic code with javascript and type script with the detail:</p>
-          <ul>
-               <li> 1. Calculating Rectangle, this simple code aims to calculate the areas of a rectangle. </li>
-               <li> 2. Calculating Circle, this simple code aims to calculate the diameter, radius, and circumference of a circle. </li>
-               <li> 3. Calculating triangle, this simple code aims to find angles of triangle if two angles are given. </li>
-               <li> 4. Getting difference between dates, this simple code aims to get difference between dates in days. </li>
-               <li> 5. Printing Initial Name in Uppercase, this simple code aims to printing name initial in uppercase. </li>
-          </ul>
-     <p> I'm writing this simple code with 'let' data type and and some built in properties in javascript like "MathPi, MathPow, MathAbs, etc." to help me in achieving the main goal of this assignment</p>
+# JavaScript & TypeScript Variable Declaration Examples
+
+This repository contains examples demonstrating the difference between `let` and `const` in both **JavaScript** and **TypeScript**. The structure is organized to help beginners understand variable declaration, scope, and usage in practical scenarios.
+
+## ✅ Purpose
+
+- Understand when to use `let` vs `const`
+- Learn differences in declaring variables in JavaScript and TypeScript
+- Practice working with common use cases: math operations, string manipulation, and date differences
+
+## 📌 Highlights
+
+- `const` is used when the variable's value should not change.
+- `let` is used for variables whose value might be reassigned.
+- TypeScript adds static type checking for safer and more predictable code.
+
+## 💡 Example Use Cases
+
+- Calculating circle area and circumference
+- Finding the third angle of a triangle
+- String initial extraction (e.g., from full name)
+- Difference between two dates in days
+
+## 📁 Struktur Proyek
+
+```plaintext
+root/
+├── JavaScript/                 
+│   ├── UsingConst/            
+│   └── UsingLet/             
+├── TypeScript/               
+│   ├── UsingConst/           
+│   └── UsingLet/             
+└── README.md 
