@@ -1,78 +1,49 @@
-Here’s the content in a plain text format that you can directly copy and paste into your `README.md` file on GitHub:
-
-```
 # Pokémon App
 
 A responsive mobile-first Pokémon application built with Next.js and Redux. Browse, search, and filter Pokémon with a sleek, modern UI.
 
-![Pokémon App Screenshot](https://placeholder-for-screenshot.png)
-
 ## Features
 
-- **Multiple View Modes**: Toggle between 1, 2, or 3 column layouts
-- **Persistent Data**: Uses localStorage for caching Pokémon data and user preferences
-- **Filtering & Sorting**: Sort Pokémon by name, number, or type
-- **Type Filtering**: Filter Pokémon by their elemental type
-- **Search Functionality**: Quickly find Pokémon by name
-- **Detailed View**: View detailed stats for each Pokémon
-- **Smooth Transitions**: Animated transitions between views and actions
+- **Multiple View Modes**: Toggle between 1, 2, or 3 column layouts to customize the display.
+- **Persistent Data**: Utilizes localStorage to cache Pokémon data and store user preferences.
+- **Filtering & Sorting**: Sort Pokémon by name, number, or type.
+- **Type Filtering**: Filter Pokémon by their elemental type.
+- **Search Functionality**: Quickly search and find Pokémon by name.
+- **Detailed View**: View detailed stats and information for each Pokémon.
+- **Smooth Transitions**: Enjoy animated transitions between views and actions for a seamless experience.
 
 ## Technologies
 
-- **Next.js**: React framework for server-rendered applications
-- **Redux Toolkit**: State management with Redux
-- **TypeScript**: Type-safe JavaScript
-- **Tailwind CSS**: Utility-first CSS framework
-- **Lucide React**: Beautiful, consistent icons
+- **Next.js**: A React framework for building server-rendered applications.
+- **Redux Toolkit**: State management using Redux for predictable state updates.
+- **TypeScript**: Type-safe JavaScript to enhance code quality and developer experience.
+- **Tailwind CSS**: A utility-first CSS framework for designing custom layouts quickly.
+- **Lucide React**: Beautiful, consistent icons for a modern UI.
 
 ## Installation
 
-1. Clone the repository:
+To run the app locally:
 
-    ```bash
-    git clone https://github.com/yourusername/pokemon-app.git
-    cd pokemon-app
-    ```
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/silvaronna/webclientdev.git
 
-2. Install dependencies:
+2. Open Directory:
+   ```bash
+   cd pokemon-app
 
-    ```bash
-    npm install
-    ```
+3. Install dependencies:
+   ```bash
+   npm install
 
-3. Run the development server:
+4. Run the development server:
+   ```bash
+   npm run dev
 
-    ```bash
-    npm run dev
-    ```
+5. Visit the app at http://localhost:3000.
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Contributing
+Feel free to fork this repository, submit issues, or open pull requests. Contributions are always welcome!
 
-## Usage
-
-- **View Mode Toggle**: Use the view mode toggles to switch between different column layouts (1, 2, or 3 columns).
-- **Search Pokémon**: Quickly search for Pokémon by name using the search bar.
-- **Sorting Options**: Sort Pokémon by their name, number, or type through the dropdown menu.
-- **Type Filtering**: Filter Pokémon by their elemental type using the filter dropdown.
-- **Detailed Pokémon Info**: Click on any Pokémon card to view detailed information, including stats and abilities.
-
-## Project Structure
-
-The project follows the standard Next.js structure:
-
-```
-pokemon-app/
-├── app/                  # Next.js app directory
-├── components/           # React components for UI elements like cards, buttons, etc.
-├── data/                 # Static Pokémon data (either local or fetched from an API)
-├── lib/                  # Redux store and utilities
-│   └── redux/            # Redux slices and hooks for state management
-├── public/               # Static assets (images, fonts, etc.)
-│   └── images/           # Pokémon images
-└── styles/               # Global styles and Tailwind CSS customizations
-```
-
-## License
-
-MIT
-```
+ ## License
+This project is licensed under the MIT License
