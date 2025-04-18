@@ -1,60 +1,69 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import Image from "next/image"
-import { Search, Grid, LayoutList } from "lucide-react"
+import { Search } from "lucide-react"
 import PokemonCard from "@/components/pokemon-card"
 import PokemonDetail from "@/components/pokemon-detail"
 import LoadingAnimation from "@/components/loading-animation"
-import { pokemonData } from "@/data/pokemon-data"
+import FilterControls from "@/components/filter-controls"
+import ViewModeToggle from "@/components/view-mode-toggle"
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
+import { setIsLoading, setIsSearchExpanded, setSearchQuery, startTransition, endTransition } from "@/lib/redux/uiSlice"
+import { setSelectedPokemon, initializeFromCache } from "@/lib/redux/pokemonSlice"
 
 export default function Home() {
-  const [isGridView, setIsGridView] = useState(false)
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false)
-  const [selectedPokemon, setSelectedPokemon] = useState<string | null>(null)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [transitionDirection, setTransitionDirection] = useState<"in" | "out">("in")
+  const dispatch = useAppDispatch()
 
-  const filteredPokemon = pokemonData.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  // UI state
+  const viewMode = useAppSelector((state) => state.ui.viewMode)
+  const isSearchExpanded = useAppSelector((state) => state.ui.isSearchExpanded)
+  const searchQuery = useAppSelector((state) => state.ui.searchQuery)
+  const isLoading = useAppSelector((state) => state.ui.isLoading)
+  const isTransitioning = useAppSelector((state) => state.ui.isTransitioning)
+  const transitionDirection = useAppSelector((state) => state.ui.transitionDirection)
+
+  // Pokemon data
+  const selectedPokemon = useAppSelector((state) => state.pokemon.selectedPokemon)
+  const allPokemon = useAppSelector((state) => state.pokemon.filteredPokemon)
+
+  // Filter pokemon by search query
+  const filteredPokemon = allPokemon.filter((pokemon) => pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
   useEffect(() => {
-    // Simulate loading time
+    // Initialize from cache and simulate loading time
+    dispatch(initializeFromCache())
+
     const timer = setTimeout(() => {
-      setIsLoading(false)
+      dispatch(setIsLoading(false))
     }, 2000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [dispatch])
 
   const handleSelectPokemon = (id: string) => {
-    setTransitionDirection("out")
-    setIsTransitioning(true)
+    dispatch(startTransition("out"))
 
     setTimeout(() => {
-      setSelectedPokemon(id)
-      setTransitionDirection("in")
+      dispatch(setSelectedPokemon(id))
+      dispatch(startTransition("in"))
     }, 300)
 
     setTimeout(() => {
-      setIsTransitioning(false)
+      dispatch(endTransition())
     }, 600)
   }
 
   const handleBack = () => {
-    setTransitionDirection("out")
-    setIsTransitioning(true)
+    dispatch(startTransition("out"))
 
     setTimeout(() => {
-      setSelectedPokemon(null)
-      setTransitionDirection("in")
+      dispatch(setSelectedPokemon(null))
+      dispatch(startTransition("in"))
     }, 300)
 
     setTimeout(() => {
-      setIsTransitioning(false)
+      dispatch(endTransition())
     }, 600)
   }
 
@@ -63,16 +72,13 @@ export default function Home() {
   }
 
   if (selectedPokemon) {
-    const pokemon = pokemonData.find((p) => p.id === selectedPokemon)
-    if (pokemon) {
-      return (
-        <div
-          className={`transition-opacity duration-300 ${isTransitioning ? (transitionDirection === "out" ? "opacity-0" : "opacity-100") : "opacity-100"}`}
-        >
-          <PokemonDetail pokemon={pokemon} onBack={handleBack} />
-        </div>
-      )
-    }
+    return (
+      <div
+        className={`transition-opacity duration-300 ${isTransitioning ? (transitionDirection === "out" ? "opacity-0" : "opacity-100") : "opacity-100"}`}
+      >
+        <PokemonDetail pokemon={selectedPokemon} onBack={handleBack} />
+      </div>
+    )
   }
 
   return (
@@ -92,7 +98,7 @@ export default function Home() {
               />
             </div>
             <button
-              onClick={() => setIsSearchExpanded(true)}
+              onClick={() => dispatch(setIsSearchExpanded(true))}
               className="p-2 hover:bg-[#3A4057] rounded-full transition-colors duration-200"
             >
               <Search size={20} />
@@ -105,59 +111,32 @@ export default function Home() {
               placeholder="Search..."
               className="flex-1 bg-transparent text-black outline-none text-sm"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               autoFocus
             />
-            <button
-              onClick={() => {
-                setIsSearchExpanded(false)
-                setSearchQuery("")
-              }}
-              className="text-gray-500 text-sm"
-            >
+            <button onClick={() => dispatch(setIsSearchExpanded(false))} className="text-gray-500 text-sm">
               Cancel
             </button>
           </div>
         )}
       </header>
 
-      <div className="p-4 flex items-center justify-between">
-        <div className="relative w-32">
-          <select className="appearance-none bg-[#3A4057] text-white px-4 py-2 rounded-md w-full text-base">
-            <option>Sort by</option>
-            <option>Name</option>
-            <option>Number</option>
-            <option>Type</option>
-          </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
-          </div>
-        </div>
+      <FilterControls />
 
-        <div className="flex gap-2">
-          <button
-            onClick={() => setIsGridView(false)}
-            className={`p-2 ${!isGridView ? "bg-[#0C1231]" : ""} rounded transition-colors duration-200`}
-          >
-            <LayoutList size={16} />
-          </button>
-          <button
-            onClick={() => setIsGridView(true)}
-            className={`p-2 ${isGridView ? "bg-[#0C1231]" : ""} rounded transition-colors duration-200`}
-          >
-            <Grid size={16} />
-          </button>
-        </div>
+      <div className="p-4 flex items-center justify-between">
+        <ViewModeToggle />
       </div>
 
-      <div className={`p-4 grid gap-4 ${isGridView ? "grid-cols-2" : "grid-cols-1 px-4"}`}>
+      <div
+        className={`p-4 grid gap-4 ${
+          viewMode === "grid" ? "grid-cols-2" : viewMode === "grid3" ? "grid-cols-3" : "grid-cols-1 px-4"
+        }`}
+      >
         {filteredPokemon.map((pokemon, index) => (
           <PokemonCard
             key={pokemon.id}
             pokemon={pokemon}
-            isGridView={isGridView}
+            viewMode={viewMode}
             onClick={() => handleSelectPokemon(pokemon.id)}
             index={index}
           />
