@@ -1,8 +1,8 @@
-# Week 2 JavaScript Functions Project
+# JavaScript Functions Project
 
-Project ini berisi kumpulan fungsi dasar JavaScript yang ditempatkan secara modular dalam file terpisah. Setiap fungsi memiliki tugas tertentu seperti konversi suhu, konversi panjang, hingga pemeriksaan palindrome.
+This project contains a collection of basic JavaScript functions. Each function has a specific task such as temperature conversion, length conversion, and palindrome checking.
 
-## 📁 Struktur Direktori
+## 📁 Directory Structure
 
 ```
 Week2/
@@ -14,17 +14,17 @@ Week2/
 ├── index.js (atau main.js) 
 ```
 
-## ⚙️ Cara Menjalankan
+## ⚙️ How to Run
 
-1. **Pastikan sudah install Node.js.**
-2. Jalankan file `index.js` atau `main.js`:
+1. **Ensure you have installed node js.**
+2. run file `index.js`
    ```bash
    node index.js
    ```
-3. Program akan menampilkan menu pilihan fungsi. User dapat memilih fungsi berdasarkan input angka.
+3. The program will display the function selection menu. Users can select a function based on numeric input.
 
 ## Catatan
-- Seluruh fungsi disimpan dalam folder `functions/` dan diexport menggunakan `module.exports`.
-- File utama menggunakan `require()` untuk mengimpor fungsi-fungsi tersebut.
-- Input dari user ditangani dengan modul `readline`.
+- All functions are stored in the `functions/` folder and exported using `module.exports`.
+- The main file uses `require()` to import the functions.
+- User input is handled with the `readline` module.
 ---
