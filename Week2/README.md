@@ -1,12 +1,30 @@
-<h1> Week II </h1>
-    <p>In this file, im creating a code to: </p>
-        <ul>
-          <li>Converting Farhenheit to Celcius</li>
-          <li>Converting Kilometer to Centimeter or Vice Versa</li>
-          <li>Find out whether a number is even or odd</li>
-          <li>Removing letters in a string</li>
-          <li>Finding out is a string palindrome or not</li>
-        </ul>
-    <p>
-      I'm write this code by using function with switch case to help me in achieving the main goal of this assignment. This assignment can help me in understanding JavaScript programming language style which will be very useful to build my algorithm ability to jump higher to reach the dream.  
-    </p>
+# Week 2 JavaScript Functions Project
+
+Project ini berisi kumpulan fungsi dasar JavaScript yang ditempatkan secara modular dalam file terpisah. Setiap fungsi memiliki tugas tertentu seperti konversi suhu, konversi panjang, hingga pemeriksaan palindrome.
+
+## 📁 Struktur Direktori
+
+```
+Week2/
+│
+├── functions/
+│   ├── function*.js      
+│   └── logger.js         
+│
+├── index.js (atau main.js) 
+```
+
+## ⚙️ Cara Menjalankan
+
+1. **Pastikan sudah install Node.js.**
+2. Jalankan file `index.js` atau `main.js`:
+   ```bash
+   node index.js
+   ```
+3. Program akan menampilkan menu pilihan fungsi. User dapat memilih fungsi berdasarkan input angka.
+
+## Catatan
+- Seluruh fungsi disimpan dalam folder `functions/` dan diexport menggunakan `module.exports`.
+- File utama menggunakan `require()` untuk mengimpor fungsi-fungsi tersebut.
+- Input dari user ditangani dengan modul `readline`.
+---
