@@ -1,96 +1,89 @@
-# Cloud Engineer Portfolio Website
-
-website portofolio modern dan interaktif oleh azka abdillah.
-
-## Teknologi yang Digunakan
-
-- **React** - Frontend Library
-- **Vite** - Build tools super cepat
-- **TailwindCSS** - Framework CSS 
-- **Lucide React** - Library ikon modern
+# Personal Portfolio Website
 
 
-## Fitur Unggulan
+https://github.com/user-attachments/assets/2910c673-0a2f-42e7-a52e-8516a2cb9450
 
-- **Tema Emas**  
-  Desain dengan latar gelap dan aksen amber/emas
 
-- **Desain Responsif**  
-  Tampil insyaallah rapih di semua ukuran layar
+A modern, responsive portfolio website built with React and Vite, featuring smooth scrolling, animated sections, and a clean design aesthetic.
 
-- **Bagian Interaktif**:
-  - **Tentang**
-  - **Skills**
-  - **Pendidikan**
-  - **Sertifikasi**
-  - **Pengalaman Kerja**
+## 🚀 Features
 
-- **Animasi**:
-  - Animasi saat scroll
-  - Efek hover
-  - Transisi halus antar bagian
+- Clean, modern UI design
+- Smooth scrolling navigation
+- Animated content sections
+- Responsive layout
+- Contact form
+- Project showcase
+- Testimonials section
+- Interactive elements
 
-- **Performa Optimal**  
-  dengan menggunakan Vite.JS memungkinkan loading cepat dan scroll yang smooth
+## 🛠️ Technologies Used
 
----
+- React.js
+- Vite
+- React Router DOM
+- SCSS/Sass
+- React Icons
 
-## 🛠️ Instalasi & Setup
+## ⚙️ Installation
 
-```shell
-# Clone repository
-git clone https://github.com/silvaronna/webclientdev.git
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/portfolio-website.git
+   cd portfolio-website
 
-# Masuk ke direktori proyek Week4
-cd <direktori>
+2. Install dependencies:
 
-# Install semua dependensi
-npm install
+    ```bash
+    npm install
+    ```
 
-# Jalankan server development
-npm run dev
+3. Start the development server:
 
-# Build untuk production
-npm run build
+    ```bash
+    npm run dev
+    ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Project Structure
+
+```
+portfolio-website/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/            # Images and static assets
+│   ├── components/        # Reusable components
+│   │   ├── button.jsx
+│   │   ├── footer.jsx
+│   │   └── nav.jsx
+│   ├── layout/            # Layout components
+│   │   ├── about.jsx
+│   │   ├── experience.jsx
+│   │   ├── form.jsx
+│   │   ├── header.jsx
+│   │   ├── portfolio.jsx
+│   │   ├── profile.jsx
+│   │   └── testimonial.jsx
+│   ├── pages/             # Page components
+│   │   ├── contact.jsx
+│   │   └── landingPages.jsx
+│   ├── scss/              # Styling
+│   │   ├── global.scss
+│   │   └── variable.scss
+│   ├── main.jsx           # Entry point
+│   └── routes.jsx         # Route definitions
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
 ```
 
----
+## Contributing
 
-## 📁 Struktur Proyek
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/portfolio-website/issues).
 
-```plaintext
-src/
-├── components/         # Komponen UI
-│   ├── about-section.jsx
-│   ├── skills-section.jsx
-│   ├── education-section.jsx
-│   ├── certification-section.jsx
-│   ├── work-section.jsx
-│   ├── work-item.jsx
-│   └── footer.jsx
-├── pages/              # Komponen halaman
-│   └── portfolio.jsx
-├── App.jsx             # Komponen utama aplikasi
-├── main.jsx            # Entry point
-├── index.css           # Style global
-└── App.css             # Style khusus App
-```
+## 📝 License
 
----
-
-## ✅ Aksesibilitas
-
-- Struktur HTML semantik
-- Kontras warna sesuai standar
-- Navigasi menggunakan keyboard
-- Mendukung screen reader
-
----
-
-## 📝 Lisensi
-
-Lisensi **MIT** – bebas digunakan dan dimodifikasi untuk portofolio pribadimu.
-
----
-
-Dibuat oleh Azka Abdillah
+This project is [MIT](LICENSE) licensed.
