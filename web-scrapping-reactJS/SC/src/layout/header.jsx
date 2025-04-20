@@ -1,16 +1,14 @@
-// Module
-import React from "react";
-import Human from "../assets/photo.svg";
+import Human from "../assets/human.svg"
 
 const Header = () => {
   return (
     <header className="header">
-      <img src={Human} alt="human" className="images" />
+      <img src={Human || "/placeholder.svg"} alt="human" className="images" />
       <div className="title">
         <h1>Webflow Developer - UI/UX Designer - Web Designer</h1>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

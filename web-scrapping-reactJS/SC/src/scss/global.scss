@@ -63,6 +63,13 @@ html {
   .images {
     position: absolute;
     bottom: 0;
+    height: 90%; /* Increase the image height */
+    max-height: 90vh; /* Limit maximum height */
+    width: auto; /* Maintain aspect ratio */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center adjustment */
+    object-fit: contain; /* Ensure the image fits properly */
+    z-index: 1; /* Ensure image is above background but below text */
   }
 
   .title {
@@ -75,6 +82,7 @@ html {
     overflow: hidden;
     white-space: nowrap;
     color: $colorWhite;
+    z-index: 2; /* Ensure text is above the image */
 
     h1 {
       display: inline-block;
