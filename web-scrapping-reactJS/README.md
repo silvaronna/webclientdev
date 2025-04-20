@@ -1,7 +1,10 @@
 # Personal Portfolio Website
 
-A modern, responsive portfolio website built with React and Vite, featuring smooth scrolling, animated sections, and a clean design aesthetic.
 
+https://github.com/user-attachments/assets/2910c673-0a2f-42e7-a52e-8516a2cb9450
+
+
+A modern, responsive portfolio website built with React and Vite, featuring smooth scrolling, animated sections, and a clean design aesthetic.
 
 ## 🚀 Features
 
