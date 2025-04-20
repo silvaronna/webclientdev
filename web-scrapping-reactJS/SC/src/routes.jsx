@@ -1,8 +1,6 @@
-// Module
-import { createBrowserRouter } from "react-router-dom";
-// Pages
-import LandingPages from "./pages/landingPages";
-import Contact from "./pages/contact";
+import { createBrowserRouter } from "react-router-dom"
+import LandingPages from "./pages/landingPages"
+import Contact from "./pages/contact"
 
 export const router = createBrowserRouter([
   {
@@ -18,4 +16,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
