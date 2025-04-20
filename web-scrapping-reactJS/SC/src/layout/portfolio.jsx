@@ -1,9 +1,10 @@
-import work0 from "../assets/work-0.jpg"
-import work1 from "../assets/work-1.jpg"
-import work2 from "../assets/work-2.jpg"
-import work3 from "../assets/work-3.jpg"
-import work5 from "../assets/work-5.jpg"
-import work6 from "../assets/work-6.jpg"
+import React from "react";
+import work0 from "../assets/work-0.jpg";
+import work1 from "../assets/work-1.jpg";
+import work2 from "../assets/work-2.jpg";
+import work3 from "../assets/work-3.jpg";
+import work5 from "../assets/work-5.jpg";
+import work6 from "../assets/work-6.jpg";
 
 const Portfolio = () => {
   const data = [
@@ -36,7 +37,7 @@ const Portfolio = () => {
         },
       ],
     },
-  ]
+  ];
 
   return (
     <section className="card-images">
@@ -48,13 +49,13 @@ const Portfolio = () => {
                 <div key={`${repeatIndex}-${index}-${subIndex}`}>
                   <img src={item.image} alt={item.name} />
                 </div>
-              )),
+              ))
             )}
           </figure>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

@@ -1,7 +1,8 @@
-import Footer from "../components/footer"
-import Nav from "../components/nav"
-import Profile from "../layout/profile"
-import Form from "../layout/form"
+import React from "react";
+import Footer from "../components/footer";
+import Nav from "../components/nav";
+import Profile from "../layout/profile";
+import Form from "../layout/form";
 
 const Contact = () => {
   return (
@@ -13,7 +14,7 @@ const Contact = () => {
       </section>
       <Footer isShow={true} />
     </main>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

@@ -1,0 +1,90 @@
+// Color
+$colorLightGrey: #c7d0d9;
+$colorDarkGrey: #3c3d3e;
+$colorBlack: #0b0c0e;
+$colorWhite: #f4f7fa;
+
+// font Size
+@mixin fontUltraBig() {
+  font-weight: 500;
+  font-size: 150.38px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+@mixin fontBig() {
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+@mixin fontMedium() {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+@mixin fontNormal() {
+  font-weight: 300;
+  font-size: 27px;
+  line-height: 140%;
+  letter-spacing: 0%;
+}
+@mixin fontSmall() {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  letter-spacing: 0%;
+}
+
+//transition
+$transition: all ease-in-out 0.3s;
+
+@mixin flex($flex, $just, $align, $gap) {
+  display: flex;
+  flex-direction: $flex;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin grid($width, $fr, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($width, $fr));
+  gap: $gap;
+}
+
+@mixin size($width, $height, $padding) {
+  width: $width;
+  height: $height;
+  padding: $padding;
+}
+
+@mixin paragraph($col) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $col;
+  -webkit-box-orient: vertical;
+}
+
+@mixin buttonStyling($color, $background, $border) {
+  @include flex(row, center, center, 0);
+  background-color: $background;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 7px;
+  color: $color;
+  font-size: $fS;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  border: 1px solid $border;
+  display: flex;
+  align-items: center;
+  transition: $fast;
+
+  &:hover {
+    transition: $fast;
+  }
+}

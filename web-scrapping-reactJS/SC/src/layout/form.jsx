@@ -1,4 +1,5 @@
-import Button from "../components/button"
+import React from "react";
+import Button from "../components/button";
 
 const Form = () => {
   const data = [
@@ -26,7 +27,7 @@ const Form = () => {
       placeholder: "Type your Message",
       type: "textarea",
     },
-  ]
+  ];
 
   return (
     <form className="card-form">
@@ -36,18 +37,26 @@ const Form = () => {
         return items.type === "textarea" ? (
           <div key={index} className="input">
             <label htmlFor={items.id}>{items.title}</label>
-            <textarea type={items.type} placeholder={items.placeholder} id={items.id} />
+            <textarea
+              type={items.type}
+              placeholder={items.placeholder}
+              id={items.id}
+            />
           </div>
         ) : (
           <div key={index} className="input">
             <label htmlFor={items.id}>{items.title}</label>
-            <input type={items.type} placeholder={items.placeholder} id={items.id} />
+            <input
+              type={items.type}
+              placeholder={items.placeholder}
+              id={items.id}
+            />
           </div>
-        )
+        );
       })}
       <Button type="dark" title="Submit" />
     </form>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

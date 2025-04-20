@@ -1,4 +1,6 @@
-import Human from "../assets/human.svg"
+// Module
+import React from "react";
+import Human from "../assets/photo.svg";
 
 const Header = () => {
   return (
@@ -8,7 +10,7 @@ const Header = () => {
         <h1>Webflow Developer - UI/UX Designer - Web Designer</h1>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

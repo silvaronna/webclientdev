@@ -1,4 +1,5 @@
-import { MdArrowOutward } from "react-icons/md"
+import React from "react";
+import { MdArrowOutward } from "react-icons/md";
 
 const Experience = () => {
   const data = [
@@ -26,7 +27,7 @@ const Experience = () => {
       path: "",
       skill: ["Brand Design", "Webflow Development", "Web Design"],
     },
-  ]
+  ];
 
   return (
     <section className="card-contet" id="work">
@@ -54,11 +55,11 @@ const Experience = () => {
                 </button>
               </section>
             </figure>
-          )
+          );
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Experience
+export default Experience;

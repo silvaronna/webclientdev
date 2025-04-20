@@ -1,4 +1,5 @@
-import profile from "../assets/big-profile.png"
+import React from "react";
+import profile from "../assets/big-profile.png";
 
 const Profile = () => {
   return (
@@ -20,7 +21,7 @@ const Profile = () => {
         <h1>Figma</h1>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

@@ -1,0 +1,341 @@
+@import "./variable.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.nav {
+  @include size(100%, 10vh, 0 5rem);
+  @include flex(row, space-between, center, 0);
+  position: fixed;
+  background: $colorLightGrey;
+  top: 0;
+  z-index: 15;
+
+  h3 {
+    @include fontSmall();
+    cursor: pointer;
+  }
+
+  section {
+    @include flex(row, center, center, 2rem);
+    p {
+      @include fontSmall();
+      cursor: pointer;
+    }
+  }
+}
+
+.header {
+  @include size(100vw, 100vh, none);
+  @include flex(column, center, center, 0);
+  position: relative;
+  overflow: hidden;
+  background-color: $colorLightGrey;
+
+  .images {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .title {
+    @include fontUltraBig();
+    color: $colorWhite;
+    position: absolute;
+    bottom: 0;
+    padding: 5rem 0;
+    width: 100%;
+    // background-color: aqua;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $colorWhite;
+
+    h1 {
+      // background: #000;
+      display: inline-block;
+      height: 10rem;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+  }
+}
+
+.card-contet {
+  @include size(100%, none, 5rem);
+  @include flex(row, start, space-between, 0);
+  .row-content-left {
+    width: 40%;
+
+    .title {
+      @include fontMedium();
+    }
+  }
+
+  .row-content-right {
+    width: 60%;
+
+    .description {
+      @include fontNormal();
+      text-align: justify;
+    }
+  }
+  .testimonial {
+    @include flex(column, start, space-between, 2rem);
+  }
+}
+
+.card-experience {
+  @include flex(row, start, space-between, 0);
+  @include size(100%, none, 2rem 0);
+  border-bottom: 1px solid rgba($color: $colorDarkGrey, $alpha: 0.5);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border: none;
+    padding-bottom: 0;
+  }
+  // background: red;
+
+  section {
+    &:nth-child(1) {
+      width: 100%;
+
+      h1 {
+        @include fontMedium();
+      }
+
+      div {
+        width: 100%;
+        @include flex(row, start, start, 0.5rem);
+
+        p {
+          @include fontSmall();
+          @include flex(row, start, start, 0.5rem);
+
+          &:last-child {
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      width: 10%;
+
+      button {
+        @include size(100%, 100%, 0);
+        @include flex(row, center, center, 0);
+        @include fontNormal();
+        outline: none;
+        border-radius: 100%;
+        background-color: transparent;
+        color: $colorDarkGrey;
+        border: 2px solid $colorDarkGrey;
+        transition: $transition;
+
+        &:hover {
+          background: $colorDarkGrey;
+          color: $colorLightGrey;
+          transition: $transition;
+        }
+      }
+    }
+  }
+}
+
+.card-testimonial {
+  @include flex(column, start, start, 0.5rem);
+
+  section {
+    @include flex(row, center, center, 1rem);
+
+    p {
+      @include fontSmall();
+      &:nth-child(1) {
+        font-weight: 500;
+      }
+      &:nth-child(2) {
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.card-images {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  .marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 20s linear infinite;
+
+    figure {
+      @include flex(row, center, center, 2rem);
+      display: flex;
+
+      div {
+        padding: 2rem;
+        background-color: $colorLightGrey;
+        img {
+          height: auto;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  @include size(100%, none, 5rem 5rem 2rem 5rem);
+  @include flex(column, space-between, center, 3rem);
+
+  background-color: $colorBlack;
+
+  .footer-top {
+    @include flex(row, space-between, center, 0);
+    @include size(100%, none, 0);
+    h1 {
+      @include flex(row, start, center, 1rem);
+      @include fontBig();
+      color: $colorWhite;
+    }
+  }
+
+  .footer-bottom {
+    @include flex(row, space-between, center, 0);
+    @include size(100%, none, 0);
+
+    div {
+      @include flex(row, center, center, 1rem);
+
+      &:nth-child(2) {
+        p {
+          &:hover {
+            color: $colorLightGrey;
+          }
+        }
+      }
+
+      p {
+        color: $colorWhite;
+      }
+    }
+  }
+}
+
+.page-about {
+  @include size(100vw, 100%, 10rem 5rem 5rem 5rem);
+  @include flex(row, start, start, 0);
+}
+
+.card-profile {
+  @include flex(column, start, start, 3rem);
+  width: 50%;
+
+  div {
+    @include flex(column, start, start, 0.5rem);
+
+    p {
+      @include fontSmall();
+    }
+
+    h1 {
+      @include fontNormal();
+      font-weight: 500;
+    }
+  }
+}
+
+.card-form {
+  @include flex(column, start, start, 3rem);
+  width: 50%;
+
+  h1 {
+    @include fontBig();
+  }
+}
+
+.input {
+  @include flex(column, start, start, 0.5rem);
+  width: 100%;
+
+  label {
+    @include fontSmall;
+  }
+
+  input,
+  textarea {
+    @include fontNormal;
+    padding: 0.5rem 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $colorDarkGrey;
+    outline: none;
+  }
+
+  textarea {
+    resize: none;
+    height: 150px;
+  }
+}
+
+.button-light {
+  @include fontSmall();
+  background-color: $colorWhite;
+  color: $colorBlack;
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  border: 1px solid $colorBlack;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $colorLightGrey;
+    background-color: $colorLightGrey;
+  }
+}
+
+.button-dark {
+  @include fontSmall();
+
+  background-color: $colorBlack;
+  color: $colorWhite;
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  border: none;
+  border: 1px solid $colorBlack;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $colorDarkGrey;
+    border: 1px solid $colorDarkGrey;
+  }
+}

@@ -1,13 +1,16 @@
-"use client"
-import { useNavigate } from "react-router-dom"
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Button = ({ type, title, path }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <button onClick={() => navigate(path)} className={type === "light" ? "button-light" : "button-dark"}>
+    <button
+      onClick={() => navigate(path)}
+      className={type === "light" ? "button-light" : "button-dark"}
+    >
       {title}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

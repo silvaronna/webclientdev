@@ -1,5 +1,6 @@
-import test1 from "../assets/test-1.png"
-import test2 from "../assets/test-2.png"
+import React from "react";
+import test1 from "../assets/testimoni1.png";
+import test2 from "../assets/testimoni2.png";
 
 const Testimonial = () => {
   const data = [
@@ -17,7 +18,7 @@ const Testimonial = () => {
       name: "Alex Cattoni",
       job: "Founder @ CopyPossy",
     },
-  ]
+  ];
 
   return (
     <section className="card-contet">
@@ -39,11 +40,11 @@ const Testimonial = () => {
                 </div>
               </section>
             </figure>
-          )
+          );
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Testimonial
+export default Testimonial;
