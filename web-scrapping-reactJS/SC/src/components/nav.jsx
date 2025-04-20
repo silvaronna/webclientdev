@@ -1,8 +1,9 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+"use client"
+
+import { useNavigate } from "react-router-dom"
 
 const Nav = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <nav className="nav">
@@ -13,7 +14,7 @@ const Nav = () => {
         <p onClick={() => navigate("/contact")}>Contact</p>
       </section>
     </nav>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

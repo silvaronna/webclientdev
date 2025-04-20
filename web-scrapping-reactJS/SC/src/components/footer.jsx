@@ -1,6 +1,5 @@
-import React from "react";
-import profile from "../assets/icon-profile.png";
-import Button from "./button";
+import profile from "../assets/icon-profile.png"
+import Button from "./button"
 
 const Footer = ({ isShow }) => {
   return (
@@ -10,8 +9,8 @@ const Footer = ({ isShow }) => {
           <div>
             <h1>Have something in mind?</h1>
             <h1>
-              <img src={profile} alt="profile" />
-              let’s build it together.
+              <img src={profile || "/placeholder.svg"} alt="profile" />
+              let's build it together.
             </h1>
           </div>
           <div>
@@ -21,7 +20,7 @@ const Footer = ({ isShow }) => {
       )}
       <section className="footer-bottom">
         <div>
-          <p>Build with 💖 by Azka Abdillah </p>
+          <p>Build with 💖 by azka abdillah </p>
         </div>
         <div>
           <p>Linkedin</p>
@@ -31,7 +30,7 @@ const Footer = ({ isShow }) => {
         </div>
       </section>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
