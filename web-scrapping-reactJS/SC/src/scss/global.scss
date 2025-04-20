@@ -1,4 +1,4 @@
-@import "./variable.scss";
+@use "./variable.scss" as *;
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
@@ -67,13 +67,11 @@
     bottom: 0;
     padding: 5rem 0;
     width: 100%;
-    // background-color: aqua;
     overflow: hidden;
     white-space: nowrap;
     color: $colorWhite;
 
     h1 {
-      // background: #000;
       display: inline-block;
       height: 10rem;
       padding-left: 100%;
@@ -119,7 +117,6 @@
     border: none;
     padding-bottom: 0;
   }
-  // background: red;
 
   section {
     &:nth-child(1) {
