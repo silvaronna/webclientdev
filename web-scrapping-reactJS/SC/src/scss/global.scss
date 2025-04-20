@@ -58,6 +58,7 @@ html {
   position: relative;
   overflow: hidden;
   background-color: $colorLightGrey;
+  margin-bottom: 8rem; /* Added spacing after header */
 
   .images {
     position: absolute;
@@ -85,7 +86,7 @@ html {
 }
 
 .card-contet {
-  @include size(100%, none, 5rem);
+  @include size(100%, none, 8rem 5rem); /* Increased vertical padding */
   @include flex(row, start, space-between, 0);
   .row-content-left {
     width: 40%;
@@ -197,6 +198,7 @@ html {
   overflow: hidden;
   width: 100%;
   position: relative;
+  margin: 8rem 0; /* Added vertical margin */
 
   .marquee-track {
     display: flex;
@@ -220,9 +222,9 @@ html {
 }
 
 .footer {
-  @include size(100%, none, 5rem 5rem 2rem 5rem);
+  @include size(100%, none, 8rem 5rem 2rem 5rem); /* Increased top padding */
   @include flex(column, space-between, center, 3rem);
-
+  margin-top: 4rem; /* Added margin before footer */
   background-color: $colorBlack;
 
   .footer-top {
@@ -343,4 +345,9 @@ html {
     background-color: $colorDarkGrey;
     border: 1px solid $colorDarkGrey;
   }
+}
+
+/* Section wrapper for consistent spacing */
+.section-wrapper {
+  margin-bottom: 6rem;
 }

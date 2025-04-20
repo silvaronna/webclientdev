@@ -11,14 +11,23 @@ const LandingPages = () => {
     <main>
       <Nav />
       <Header />
-      <div id="about">
+
+      <div id="about" className="section-wrapper">
         <About />
       </div>
-      <div id="work">
+
+      <div id="work" className="section-wrapper">
         <Experience />
       </div>
-      <Portfolio />
-      <Testimonial />
+
+      <div className="section-wrapper">
+        <Portfolio />
+      </div>
+
+      <div className="section-wrapper">
+        <Testimonial />
+      </div>
+
       <Footer isShow={true} />
     </main>
   )

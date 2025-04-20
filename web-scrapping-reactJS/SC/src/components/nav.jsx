@@ -12,13 +12,29 @@ const Nav = () => {
       setTimeout(() => {
         const element = document.getElementById(id)
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" })
+          // Offset for the fixed header
+          const headerOffset = 100
+          const elementPosition = element.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          })
         }
       }, 100)
     } else {
       const element = document.getElementById(id)
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
+        // Offset for the fixed header
+        const headerOffset = 100
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
       }
     }
   }
