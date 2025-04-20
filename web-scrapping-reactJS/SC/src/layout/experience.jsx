@@ -48,7 +48,7 @@ const Experience = () => {
               </div>
             </section>
             <section>
-              <button>
+              <button className="arrow-button">
                 <MdArrowOutward />
               </button>
             </section>

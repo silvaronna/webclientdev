@@ -26,6 +26,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .nav {
   @include size(100%, 10vh, 0 5rem);
   @include flex(row, space-between, center, 0);
@@ -147,9 +151,8 @@
       width: 10%;
 
       button {
-        @include size(100%, 100%, 0);
+        @include size(40px, 40px, 0);
         @include flex(row, center, center, 0);
-        @include fontNormal();
         outline: none;
         border-radius: 100%;
         background-color: transparent;
@@ -161,6 +164,11 @@
           background: $colorDarkGrey;
           color: $colorLightGrey;
           transition: $transition;
+        }
+        
+        svg {
+          width: 20px;
+          height: 20px;
         }
       }
     }
