@@ -1,5 +1,4 @@
-import React from "react";
-import { MdArrowOutward } from "react-icons/md";
+import { MdArrowOutward } from "react-icons/md"
 
 const Experience = () => {
   const data = [
@@ -27,7 +26,7 @@ const Experience = () => {
       path: "",
       skill: ["Brand Design", "Webflow Development", "Web Design"],
     },
-  ];
+  ]
 
   return (
     <section className="card-contet" id="work">
@@ -35,31 +34,29 @@ const Experience = () => {
         <h1 className="title">Recent Work</h1>
       </div>
       <div className="row-content-right experience">
-        {data.map((items, index) => {
-          return (
-            <figure key={index} className="card-experience">
-              <section>
-                <h1>{items.title}</h1>
-                <div>
-                  {items.skill.map((item, idx) => (
-                    <p key={idx}>
-                      {item}
-                      <span>-</span>
-                    </p>
-                  ))}
-                </div>
-              </section>
-              <section>
-                <button>
-                  <MdArrowOutward />
-                </button>
-              </section>
-            </figure>
-          );
-        })}
+        {data.map((item) => (
+          <figure key={item.id} className="card-experience">
+            <section>
+              <h1>{item.title}</h1>
+              <div>
+                {item.skill.map((skill, idx) => (
+                  <p key={idx}>
+                    {skill}
+                    <span>-</span>
+                  </p>
+                ))}
+              </div>
+            </section>
+            <section>
+              <button>
+                <MdArrowOutward />
+              </button>
+            </section>
+          </figure>
+        ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

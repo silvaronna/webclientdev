@@ -1,8 +1,7 @@
-import React from "react";
-import Button from "../components/button";
+import Button from "../components/button"
 
 const Form = () => {
-  const data = [
+  const formFields = [
     {
       id: 1,
       title: "name",
@@ -27,36 +26,25 @@ const Form = () => {
       placeholder: "Type your Message",
       type: "textarea",
     },
-  ];
+  ]
 
   return (
     <form className="card-form">
-      <h1>Let’s build something cool together</h1>
+      <h1>Let's build something cool together</h1>
 
-      {data.map((items, index) => {
-        return items.type === "textarea" ? (
-          <div key={index} className="input">
-            <label htmlFor={items.id}>{items.title}</label>
-            <textarea
-              type={items.type}
-              placeholder={items.placeholder}
-              id={items.id}
-            />
-          </div>
-        ) : (
-          <div key={index} className="input">
-            <label htmlFor={items.id}>{items.title}</label>
-            <input
-              type={items.type}
-              placeholder={items.placeholder}
-              id={items.id}
-            />
-          </div>
-        );
-      })}
+      {formFields.map((field) => (
+        <div key={field.id} className="input">
+          <label htmlFor={field.id}>{field.title}</label>
+          {field.type === "textarea" ? (
+            <textarea placeholder={field.placeholder} id={field.id} />
+          ) : (
+            <input type={field.type} placeholder={field.placeholder} id={field.id} />
+          )}
+        </div>
+      ))}
       <Button type="dark" title="Submit" />
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

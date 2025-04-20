@@ -1,9 +1,8 @@
-import React from "react";
-import test1 from "../assets/testimoni1.png";
-import test2 from "../assets/testimoni2.png";
+import test1 from "../assets/testimoni1.png"
+import test2 from "../assets/testimoni2.png"
 
 const Testimonial = () => {
-  const data = [
+  const testimonials = [
     {
       id: 1,
       image: test1,
@@ -18,33 +17,29 @@ const Testimonial = () => {
       name: "Alex Cattoni",
       job: "Founder @ CopyPossy",
     },
-  ];
+  ]
 
   return (
     <section className="card-contet">
       <div className="row-content-left">
-        <div className="row-content-left">
-          <h1 className="title">Testimonial</h1>
-        </div>
+        <h1 className="title">Testimonial</h1>
       </div>
       <div className="row-content-right testimonial">
-        {data.map((item, index) => {
-          return (
-            <figure key={index} className="card-testimonial">
-              <p className="description">{item.desc}</p>
-              <section>
-                <img src={item.image} alt={item.name} />
-                <div>
-                  <p>{item.name}</p>
-                  <p>{item.job}</p>
-                </div>
-              </section>
-            </figure>
-          );
-        })}
+        {testimonials.map((item) => (
+          <figure key={item.id} className="card-testimonial">
+            <p className="description">{item.desc}</p>
+            <section>
+              <img src={item.image || "/placeholder.svg"} alt={item.name} />
+              <div>
+                <p>{item.name}</p>
+                <p>{item.job}</p>
+              </div>
+            </section>
+          </figure>
+        ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonial;
+export default Testimonial
