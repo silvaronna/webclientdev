@@ -1,11 +1,29 @@
 @use "./variable.scss" as *;
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+// Note: Neue Montreal needs to be added to your project as it's not available on Google Fonts
+// You'll need to add the font files to your project and use @font-face
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../assets/fonts/NeueMontreal-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../assets/fonts/NeueMontreal-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
 }
 
 @keyframes marquee {
@@ -58,18 +76,18 @@ html {
   position: relative;
   overflow: hidden;
   background-color: $colorLightGrey;
-  margin-bottom: 8rem; /* Added spacing after header */
+  margin-bottom: 8rem;
 
   .images {
     position: absolute;
     bottom: 0;
-    height: 90%; /* Increase the image height */
-    max-height: 90vh; /* Limit maximum height */
-    width: auto; /* Maintain aspect ratio */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center adjustment */
-    object-fit: contain; /* Ensure the image fits properly */
-    z-index: 1; /* Ensure image is above background but below text */
+    height: 90%;
+    max-height: 90vh;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 1;
   }
 
   .title {
@@ -82,7 +100,7 @@ html {
     overflow: hidden;
     white-space: nowrap;
     color: $colorWhite;
-    z-index: 2; /* Ensure text is above the image */
+    z-index: 2;
 
     h1 {
       display: inline-block;
@@ -94,7 +112,7 @@ html {
 }
 
 .card-contet {
-  @include size(100%, none, 8rem 5rem); /* Increased vertical padding */
+  @include size(100%, none, 8rem 5rem);
   @include flex(row, start, space-between, 0);
   .row-content-left {
     width: 40%;
@@ -136,7 +154,8 @@ html {
       width: 100%;
 
       h1 {
-        @include fontMedium();
+        @include fontBig();
+        font-family: 'Inter', sans-serif;
       }
 
       div {
@@ -189,14 +208,20 @@ html {
 
   section {
     @include flex(row, center, center, 1rem);
+    
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
     p {
-      @include fontSmall();
       &:nth-child(1) {
-        font-weight: 500;
+        @include fontSmallBold();
       }
       &:nth-child(2) {
-        font-weight: 300;
+        @include fontExtraSmall();
       }
     }
   }
@@ -206,7 +231,7 @@ html {
   overflow: hidden;
   width: 100%;
   position: relative;
-  margin: 8rem 0; /* Added vertical margin */
+  margin: 8rem 0;
 
   .marquee-track {
     display: flex;
@@ -230,9 +255,9 @@ html {
 }
 
 .footer {
-  @include size(100%, none, 8rem 5rem 2rem 5rem); /* Increased top padding */
+  @include size(100%, none, 8rem 5rem 2rem 5rem);
   @include flex(column, space-between, center, 3rem);
-  margin-top: 4rem; /* Added margin before footer */
+  margin-top: 4rem;
   background-color: $colorBlack;
 
   .footer-top {
@@ -261,6 +286,7 @@ html {
       }
 
       p {
+        @include fontSmall();
         color: $colorWhite;
       }
     }
@@ -304,12 +330,12 @@ html {
   width: 100%;
 
   label {
-    @include fontSmall;
+    @include fontSmall();
   }
 
   input,
   textarea {
-    @include fontNormal;
+    @include fontNormal();
     padding: 0.5rem 0;
     width: 100%;
     border: none;
@@ -340,7 +366,6 @@ html {
 
 .button-dark {
   @include fontSmall();
-
   background-color: $colorBlack;
   color: $colorWhite;
   padding: 1.5rem 3rem;
@@ -355,7 +380,6 @@ html {
   }
 }
 
-/* Section wrapper for consistent spacing */
 .section-wrapper {
   margin-bottom: 6rem;
 }

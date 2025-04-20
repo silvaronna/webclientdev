@@ -1,4 +1,4 @@
-import Human from "../assets/human.svg"
+import Human from "../assets/photo.svg"
 
 const Header = () => {
   return (
