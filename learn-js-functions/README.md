@@ -11,7 +11,7 @@ Week2/
 │   ├── function*.js      
 │   └── logger.js         
 │
-├── index.js (atau main.js) 
+├── index.js 
 ```
 
 ## ⚙️ How to Run
